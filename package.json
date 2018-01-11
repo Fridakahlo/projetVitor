@@ -1,0 +1,22 @@
+{
+  "name": "projetvitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fridakahlo/projetVitor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fridakahlo/projetVitor/issues"
+  },
+  "homepage": "https://github.com/Fridakahlo/projetVitor#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
