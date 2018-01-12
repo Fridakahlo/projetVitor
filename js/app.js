@@ -17,8 +17,43 @@
 	 	{prenom:'Christelle', nom:'Talbot',},
 	 	{prenom:'Mathéo', nom:'Zeller',},
 	 ];
+	 //function génération de l'annuaire sur l'HTML
+	 function generateannuaire(){ 
+		for (i=0; i<=annuaire.length; i++){
+			$(".membre").append('<li><input type="checkbox" name="cb" checked="checked" class="btn">'+annuaire[i].prenom+'</li>')
+		}
+	 };
 
-	 
+	$('.add').click(function(){ //ajout de nouvelles personnes
+		var pren = $('.pren').val();
+		var nm = $('.nom').val();
+		var annuaire_json = JSON.stringify(annuaire);
+
+		$('.membre').append('<li><input type="checkbox" name="'+pren+'" checked="checked" class="btn">'+pren+'</li>')
+		$('.pren').val("");
+		$('.nom').val("");
+
+		annuaire.push({prenom:pren,nom:nm});
+		sessionStorage.setItem("annuaire",annuaire_json);
+		
+
+	});
+
+	$('.letsgo').click(function(){ //lancement random
+		var grp = $('.nbrgrp').val();
+
+		var presents = [];
+
+		$('.btn:checked').each(function() {
+		    presents.push($(this).attr('name'));
+		});
+		
+	});
+	generateannuaire();
+
+})();
+
+
 
 	//  function aleatoire (annu){
 
@@ -33,35 +68,3 @@
 	// 	var personne = aleatoire(annuaire)
 	// 	$().append(personne);
 	// };
-
-
-	$('.add').click(function(){ //ajout de nouvelles personnes
-		var pren = $('.pren').val();
-		var nm = $('.nom').val();
-		var annuaire_json = JSON.stringify(annuaire);
-
-		$('.membre').append('<li><input type="checkbox" name="cb" checked="checked" class="btn">'+pren+'</li>')
-		$('.pren').val("");
-		$('.nom').val("");
-
-		annuaire.push({prenom:pren,nom:nm});
-		sessionStorage.setItem("annuaire",annuaire_json);
-		
-
-	});
-
-	$('.letsgo').click(function(){ //lancement random
-		var grp = $('.nbrgrp').val();
-
-		function checkbox() {     
-
-			var chkBox = document.getElementByclass('.btn'); 
-			
-			if (chkBox.checked)     {  
-					console.log(chkBox);
-			    } 
-		};
-		
-	});
-
-})();
