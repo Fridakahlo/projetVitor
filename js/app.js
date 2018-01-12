@@ -20,28 +20,48 @@
 
 	 
 
-	 function aleatoire (annu){
+	//  function aleatoire (annu){
 
-		var random = Math.round (Math.random() * (annu.length - 1));
-	 	var stock = annu[random];
+	// 	var random = Math.round (Math.random() * (annu.length - 1));
+	//  	var stock = annu[random];
 
-	 	annu.splice(random,1);
-	 	return stock;
+	//  	annu.splice(random,1);
+	//  	return stock;
 
-	 };
+	//  };
+	// for (i=0;i>4;i++){
+	// 	var personne = aleatoire(annuaire)
+	// 	$().append(personne);
+	// };
 
 
+	$('.add').click(function(){ //ajout de nouvelles personnes
+		var pren = $('.pren').val();
+		var nm = $('.nom').val();
+		var annuaire_json = JSON.stringify(annuaire);
 
-	for (i=0;i>4;i++){
-		var personne = aleatoire(annuaire)
-		$().append(personne);
-	};
+		$('.membre').append('<li><input type="checkbox" name="cb" checked="checked" class="btn">'+pren+'</li>')
+		$('.pren').val("");
+		$('.nom').val("");
 
-	function addmenbre(){
-		$('.add').click(function(){
-			$('.membre').html("<li><input type="checkbox" name="cb" checked="checked" class="btn">Corentin</li>")
-		});
-	};
-	aleatoire();
-	addmenbre();
+		annuaire.push({prenom:pren,nom:nm});
+		sessionStorage.setItem("annuaire",annuaire_json);
+		
+
+	});
+
+	$('.letsgo').click(function(){ //lancement random
+		var grp = $('.nbrgrp').val();
+
+		function checkbox() {     
+
+			var chkBox = document.getElementByclass('.btn'); 
+			
+			if (chkBox.checked)     {  
+					console.log(chkBox);
+			    } 
+		};
+		
+	});
+
 })();
