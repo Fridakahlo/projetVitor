@@ -20,18 +20,28 @@
 
 	 
 
-	 function aléatoire (annuaire){
+	 function aleatoire (annu){
 
-		var random = Math.round (Math.random() * (annuaire.length - 1));
-	 	var stock = annuaire[random];
+		var random = Math.round (Math.random() * (annu.length - 1));
+	 	var stock = annu[random];
 
-	 	annuaire.splice(random,1);
+	 	annu.splice(random,1);
 	 	return stock;
-	 	for (){};
-	 	while(){};
 
 	 };
 
 
-	
+
+	for (i=0;i>4;i++){
+		var personne = aleatoire(annuaire)
+		$().append(personne);
+	};
+
+	function addmenbre(){
+		$('.add').click(function(){
+			$('.membre').html("<li><input type="checkbox" name="cb" checked="checked" class="btn">Corentin</li>")
+		});
+	};
+	aleatoire();
+	addmenbre();
 })();
